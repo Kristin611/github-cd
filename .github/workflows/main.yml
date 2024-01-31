@@ -4,13 +4,16 @@ on:
   push:
     branches:
       - main
- jobs:
+
+jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: akhileshns/heroku-deploy@v3.12.11
+      - uses: actions/checkout@v3
+
+      - name: Deploy to Heroku
+      - uses: akhileshns/heroku-deploy@v3.12.12
         with:
-          heroku_api_key: ${{secrets.HERUKO_API_KEY}}
+          heroku_api_key: ${{ secrets.HERUKO_API_KEY }}
           heroku_app_name: "my-cd-demo"
           heroku_email: "kmrichie611@gmail.com"     
